@@ -1,5 +1,6 @@
-package com.example.calendar.Activity
+package com.example.calendar.ui.components
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,7 +22,9 @@ import com.example.calendar.ui.theme.CalendarTheme
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import androidx.compose.ui.input.pointer.pointerInput
+import com.example.calendar.ui.base.NextQ
 import java.time.LocalDate
+import androidx.compose.ui.platform.LocalContext
 
 class CalendarActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,10 +45,6 @@ class CalendarActivity : ComponentActivity() {
 @Composable
 fun CalendarScreen() {
     var currentMonth by remember { mutableStateOf(YearMonth.now()) }
-
-    val calendarData = remember(currentMonth) {
-        generateCalendarGridData(currentMonth)
-    }
 
     Column(
         modifier = Modifier
@@ -112,6 +111,18 @@ fun CalendarScreen() {
                 }
             }
         }
+        Box(
+            modifier = Modifier
+                .aspectRatio(1f)
+                .padding(4.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            val context = LocalContext.current
+            NextQ {
+                val intent = Intent(context, LineActivity::class.java)
+                context.startActivity(intent)
+            }
+        }
     }
 }
 
@@ -129,6 +140,5 @@ fun generateCalendarGridData(yearMonth: YearMonth): List<String> {
         val formatted = date.format(DateTimeFormatter.ofPattern("d"))
         list.add(formatted)
     }
-
     return list
 }

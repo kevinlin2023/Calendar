@@ -1,8 +1,7 @@
-package com.example.calendar
+package com.example.calendar.ui.components
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,15 +20,12 @@ import com.example.calendar.ViewModel.CountdownViewModel
 import com.example.calendar.ui.theme.CalendarTheme
 import androidx.activity.viewModels
 import androidx.compose.foundation.background
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.TextButton
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
-import com.example.calendar.Activity.CalendarActivity
-import com.example.calendar.ui.theme.LightBlue
+import com.example.calendar.ui.base.BaseActivity
+import com.example.calendar.ui.base.NextQ
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
     val viewModel: CountdownViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,18 +75,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun NextQ(onClick: () -> Unit) {
-    TextButton(
-        onClick = onClick,
-        colors = ButtonDefaults.textButtonColors(
-            containerColor = LightBlue, // 背景色
-            contentColor = Color.White         // 文字顏色
-        )
-    ) {
-        Text("下一題")
     }
 }

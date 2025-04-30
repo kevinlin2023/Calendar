@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.calendar.ViewModel.CountdownViewModel
+import com.example.calendar.viewModel.CountdownViewModel
 import com.example.calendar.ui.theme.CalendarTheme
 import androidx.activity.viewModels
 import androidx.compose.foundation.background

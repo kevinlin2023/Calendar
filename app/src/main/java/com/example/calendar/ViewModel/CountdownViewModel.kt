@@ -1,4 +1,4 @@
-package com.example.calendar.ViewModel
+package com.example.calendar.viewModel
 
 import android.os.Handler
 import android.os.Looper

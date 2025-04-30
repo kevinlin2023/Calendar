@@ -5,7 +5,7 @@ import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.calendar.Model.CountdownTime
+import com.example.calendar.model.CountdownTime
 import java.time.Duration
 import java.time.LocalDateTime
 
